@@ -1,45 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Vanilla Slider</title>
-  </head>
-  <body>
-    <div class="slider-container">
-      <div class="slide">
-      <img
-        src="Welcome.png"
-      />
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="loader">
+<div></div>
+</div>
+  <div class="content">
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 7</div>
+        <img src="image_1.jpg" style="width:100%">
+        <div class="text">Anju Lath</div>
       </div>
-      <div class="slide">
-        <img
-          src="image_1.jpg"
-        />
+      
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 7</div>
+        <img src="image_2.jpg" style="width:100%">
+        <div class="text">Dollar</div>
       </div>
-      <div class="slide">
-        <img
-          src="image_2.jpg"
-        />
+      
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 7</div>
+        <img src="image_3.jpg
+        " style="width:100%">
+        <div class="text">Kiran</div>
       </div>
-      <div class="slide">
-        <img
-          src="image_3.jpg"
-        />
+      
+      <div class="mySlides fade">
+        <div class="numbertext">4 / 7</div>
+        <img src="image_4.jpg" style="width:100%">
+        <div class="text">Mridul</div>
       </div>
-      <div class="slide">
-        <img
-          src="image_4.jpg"
-        />
+      
+      <div class="mySlides fade">
+        <div class="numbertext">5 / 7</div>
+        <img src="image_5.jpg" style="width:100%">
+        <div class="text">Sanju</div>
       </div>
-      <div class="slide">
-        <img
-          src="image_5.jpg"
-          alt=""
-        />
+      <div class="mySlides fade">
+        <div class="numbertext">6 / 7</div>
+        <img src="image_6-removebg-preview.png" style="width:100%">
+        <div class="text">Rishu And Bade Mamma</div>
       </div>
-    </div>
-    <script src="app.js"></script>
-  </body>
-</html>
+      <div class="mySlides fade">
+        <div class="numbertext">7 / 7</div>
+        <img src="Bua And fufu Ji.jpeg" style="width:100%">
+        <div class="text">Menka And RajKumar</div>
+      </div>
+      
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      
+      </div>
+      <br>
+      
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+        <span class="dot" onclick="currentSlide(4)"></span> 
+        <span class="dot" onclick="currentSlide(5)"></span> 
+        <span class="dot" onclick="currentSlide(6)"></span> 
+        <span class="dot" onclick="currentSlide(7)"></span> 
+      </div>
+      
+  </div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+$(window).on('load',function(){
+  $(".loader").fadeOut(1000);
+  $(".content").fadeIn(1000);
+});
+
+
+
+
+</script>
+
+</body>
+</html> 
